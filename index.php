@@ -77,7 +77,7 @@ if(isset($_POST["search"])){
 			showResult($file,$infotext,$imgurl,$upvotes,$index,$names);	
 		}else{
 		
-		if($similar > 4){
+		if($similar > 3){
 		
 		$index += 1;
 		$names[$index] = $file;
