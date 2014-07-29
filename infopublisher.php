@@ -8,7 +8,7 @@
 	echo "<a href='index.php'> click here to go back </a><p>";
 	
 	$maxTitle = 52;
-	$maxInfo = 160;
+	$maxInfo = 228;
 	
 	$title = $_POST['title'];
 	$info = $_POST['info'];

@@ -1,6 +1,6 @@
 .boxed {
 
-
+	
   border: 2px solid gray  ;
   border-radius: 8px;
   width: 640px;
@@ -13,7 +13,7 @@
 .boxed:hover {
 
 
-  border: 4px solid #00BFFF ;
+  border: 2px solid #00BFFF ;
   border-radius: 8px;
   width: 640px;
   color: #000000;

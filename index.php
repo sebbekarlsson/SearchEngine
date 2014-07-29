@@ -42,7 +42,7 @@ if(isset($_POST["search"])){
 	
 	
 	$old = file_get_contents("searches.txt");
-	$new = "$old"."\r\n"."$text";
+	$new = "$old"."\r\n"."$text<br>";
 	file_put_contents("searches.txt", $new);
 	
 		
@@ -80,7 +80,7 @@ if(isset($_POST["search"])){
 			showResult($file,$infotext,$imgurl,$upvotes,$index,$names);	
 		}else{
 		
-		if($similar > 3){
+		if($similar > 3.5){
 		
 		$index += 1;
 		$names[$index] = $file;
