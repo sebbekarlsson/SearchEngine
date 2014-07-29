@@ -41,6 +41,9 @@ if(isset($_POST["search"])){
 	$info = "$page/info.txt";
 	
 	
+	$old = file_get_contents("searches.txt");
+	$new = "$old"."\r\n"."$text";
+	file_put_contents("searches.txt", $new);
 	
 		
 		
