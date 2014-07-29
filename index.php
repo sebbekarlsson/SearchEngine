@@ -81,7 +81,7 @@ if(isset($_POST["search"])){
 			showResult($file,$infotext,$imgurl,$upvotes,$similar,$index,$names);	
 		}else{
 		
-		if($similar > 5.9 || substr_count($infotext, $text) > 1){
+		if($similar > 5.9 || substr_count($infotext, $text) > 0){
 		
 		$index += 1;
 		$names[$index] = $file;
