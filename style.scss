@@ -1,0 +1,70 @@
+.boxed{
+
+	
+	
+  border: 2px solid gray  ;
+  border-radius: 8px;
+  width: 640px;
+  color: #000000;
+  /*background-image:url('images/texture.jpg');*/
+ 
+  box-shadow: 10px 10px 5px #888888;
+  
+  
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+       -moz-animation: fadein 2s; /* Firefox */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera */
+            animation: fadein 2s;
+     
+            
+            
+      
+}
+
+.boxed:hover {
+
+
+  border: 2px solid #00BFFF ;
+  border-radius: 8px;
+  width: 640px;
+  color: #000000;
+  /*background-image:url('images/texture.jpg');*/
+ 
+  box-shadow: 10px 10px 5px #888888;
+}
+
+.boxed2{
+  width: 640px;
+  color: #000000;
+  /*background-color: #696969;*/
+}
+
+div {line-height: 1.5;}
+h1, p {margin: 0;}
+
+
+
+@keyframes fadein {
+    from { opacity: 0; color: #00BFFF; background-color: gray; }
+    to   { opacity: 1; color: black; background-color: white; }
+    
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; color: #00BFFF; background-color: gray; }
+    to   { opacity: 1; color: black; background-color: white;}
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; color: #00BFFF; background-color: gray; /*-webkit-transform: rotate(360deg);*/}
+    to   { opacity: 1; color: black; background-color: white; /*-webkit-transform: rotate(0deg);*/ }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; color: #00BFFF; background-color: gray;  }
+    to   { opacity: 1; color: black; background-color: white; }
+}​

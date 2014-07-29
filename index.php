@@ -11,12 +11,13 @@
 <center>
 
 <html>
-<link rel="stylesheet" type="text/css" href="style.css">		
+<link rel="stylesheet" type="text/css" href="style.scss">		
 <header>
-
+<img src="images/logo.png"/>
 </header>
 	
 <body>
+	
 	
 	
 
@@ -61,7 +62,7 @@ if(isset($_POST["search"])){
         	if ('.' === $file) continue;
         	if ('..' === $file) continue;
 
-		$similar = similar_text($text, $file);
+		$similar = similar_text(strtolower($text), strtolower($file));
 		$infotext = file_get_contents("$path/$file/info.txt");
 		$imgurl = "";
 		$upvotes = 0;
@@ -77,15 +78,15 @@ if(isset($_POST["search"])){
 			$index += 1;
 			$names[$index] = $file;
 			
-			showResult($file,$infotext,$imgurl,$upvotes,$index,$names);	
+			showResult($file,$infotext,$imgurl,$upvotes,$similar,$index,$names);	
 		}else{
 		
-		if($similar > 3.5 || substr_count($infotext, $text) > 0){
+		if($similar > 5.9 || substr_count($infotext, $text) > 1){
 		
 		$index += 1;
 		$names[$index] = $file;
 		
-		showResult($file,$infotext,$imgurl,$upvotes,$index,$names);
+		showResult($file,$infotext,$imgurl,$upvotes,$similar,$index,$names);
 		
 		
 		}
@@ -136,7 +137,10 @@ if(isset($_POST["search"])){
 
 
 
-	function showResult($file,$infotext,$imgurl,$upvotes,$index,$names){
+	function showResult($file,$infotext,$imgurl,$upvotes,$similar,$index,$names){
+		
+		
+		
 		echo"<div align='left' class='boxed'>
 
 		<form method='post'>
@@ -145,11 +149,22 @@ if(isset($_POST["search"])){
 		echo "<h1><font face='verdana'>$file</font></h1> <div align='right'><input type='image' src='images/downvote.png' width=16px height=16px name='downvote' value='Downvote'/>";
 		echo "<input type='image' src='images/upvote.png' width=16px height=16px name='upvote' value='Upvote'/> $upvotes</div><hr>";
 		echo "<font face='verdana'>$infotext</font><br>";
+		
+		echo"<div align='right'>Similarity:$similar</div>";
+		
+		
 		echo"<div align = left>";
+		
+		echo "<p>";
+		
+		
 		if(strlen($imgurl)>3){echo "<a href='$imgurl'><img src='images/camera.png' with=16px height=16px /></a>";}
-		echo "<a href='#'><img src='images/info.png' with=16px height=16px /></a>";
-		echo "<a href='#'><img src='images/add.png' with=16px height=16px /></a>";
+		echo "<a href='#'><img src='images/info.png' with=32px height=16px /></a>";
+		echo "<a href='#'><img src='images/add.png' with=32px height=16px /></a>";
+		
 		echo"</div>";
+		
+		
 		
 		echo "<input type ='hidden' name='ID' value='$index'/>";
 		echo "<input type ='hidden' name='NAME' value='$names[$index]'/>";
