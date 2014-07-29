@@ -62,7 +62,7 @@ if(isset($_POST["search"])){
         	if ('.' === $file) continue;
         	if ('..' === $file) continue;
 
-		$similar = similar_text(strtolower($text), strtolower($file));
+		$similar = string_compare(strtolower($text), strtolower($file));
 		$infotext = file_get_contents("$path/$file/info.txt");
 		$imgurl = "";
 		$upvotes = 0;
@@ -81,7 +81,7 @@ if(isset($_POST["search"])){
 			showResult($file,$infotext,$imgurl,$upvotes,$similar,$index,$names);	
 		}else{
 		
-		if($similar > 5.9 || substr_count($infotext, $text) > 0){
+		if($similar > 0.5 || substr_count($infotext, $text) > 0){
 		
 		$index += 1;
 		$names[$index] = $file;
@@ -176,6 +176,51 @@ if(isset($_POST["search"])){
 	}
 
 
+
+
+function string_compare($str_a, $str_b) 
+{
+    $length = strlen($str_a);
+    $length_b = strlen($str_b);
+
+    $i = 0;
+    $segmentcount = 0;
+    $segmentsinfo = array();
+    $segment = '';
+    while ($i < $length) 
+    {
+        $char = substr($str_a, $i, 1);
+        if (strpos($str_b, $char) !== FALSE) 
+        {               
+            $segment = $segment.$char;
+            if (strpos($str_b, $segment) !== FALSE) 
+            {
+                $segmentpos_a = $i - strlen($segment) + 1;
+                $segmentpos_b = strpos($str_b, $segment);
+                $positiondiff = abs($segmentpos_a - $segmentpos_b);
+                $posfactor = ($length - $positiondiff) / $length_b; // <-- ?
+                $lengthfactor = strlen($segment)/$length;
+                $segmentsinfo[$segmentcount] = array( 'segment' => $segment, 'score' => ($posfactor * $lengthfactor));
+            } 
+            else 
+            {
+                $segment = '';
+                $i--;
+                $segmentcount++;
+            } 
+        } 
+        else 
+        {
+            $segment = '';
+            $segmentcount++;
+        }
+        $i++;
+    }   
+
+    // PHP 5.3 lambda in array_map      
+    $totalscore = array_sum(array_map(function($v) { return $v['score'];  }, $segmentsinfo));
+    return $totalscore;     
+}
 
 ?>
 	
