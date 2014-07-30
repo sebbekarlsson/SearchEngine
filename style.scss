@@ -51,6 +51,14 @@
   
 }
 
+.faded{
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+       -moz-animation: fadein 2s; /* Firefox */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera */
+            animation: fadein 2s;
+}
+
 img{
   padding: 3px;
 }
@@ -70,14 +78,14 @@ h1, p {margin: 0;}
 
 
 @keyframes fadein {
-    from { opacity: 0; color: #00BFFF; background-color: gray; }
+    from { opacity: 0; color: #00BFFF; }
     to   { opacity: 1; color: black; background-color: white; }
     
 }
 
 /* Firefox */
 @-moz-keyframes fadein {
-    from { opacity: 0; color: #00BFFF; background-color: gray; }
+    from { opacity: 0; color: #00BFFF; }
     to   { opacity: 1; color: black; background-color: white;}
 }
 
@@ -108,12 +116,12 @@ h1, p {margin: 0;}
 
 /* Safari and Chrome */
 @-webkit-keyframes fadein {
-    from { opacity: 0; color: #00BFFF; background-color: gray; /*-webkit-transform: rotate(360deg);*/}
+    from { opacity: 0; color: #00BFFF; /*-webkit-transform: rotate(360deg);*/}
     to   { opacity: 1; color: black; background-color: white; /*-webkit-transform: rotate(0deg);*/ }
 }
 
 /* Internet Explorer */
 @-ms-keyframes fadein {
-    from { opacity: 0; color: #00BFFF; background-color: gray;  }
+    from { opacity: 0; color: #00BFFF;  }
     to   { opacity: 1; color: black; background-color: white; }
 }​

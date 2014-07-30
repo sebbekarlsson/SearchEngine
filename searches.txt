@@ -199,3 +199,6 @@ Cow<br>
 Cows<br>
 Cow<br>
 Co<br>
+ALL<br>
+ALL<br>
+Cat<br>
