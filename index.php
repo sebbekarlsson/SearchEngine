@@ -97,19 +97,20 @@ if(isset($_POST["search"])){
 		
 			}
 		
-			else if (substr_count($infotext, $text) > 0){
+			/*else if (substr_count($infotext, $text) > 0){
 				$index += 1;
 				$names[$index] = $file;
 		
 				showResult($file,$infotext,$imgurl,$upvotes,$similar,$index,$names);
-			}
+			}*/
 		}
     	}
     	closedir($handle);
 	}
 	
 	if($index < 1){
-			echo "No results were found.";
+			echo "No results were found.<br>";
+			echo "<a href='shareinfo.php'>Click here to add information about it!</a>";
 	}
 	
 		
