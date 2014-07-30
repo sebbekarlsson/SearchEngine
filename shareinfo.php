@@ -13,7 +13,7 @@
 	<input type="text" name="title" onkeyup="textCounter(this,'counter',52);"/>
 	
 	<h1>Information</h1><br>
-	<textarea onkeyup="textCounter(this,'counter',228);" name="info" rows="4" cols="50"></textarea>
+	<textarea onkeyup="textCounter(this,'counter',140);" name="info" rows="4" cols="50"></textarea>
 	
 	<h1>Image url (optional)</h1><br>
 	<input type="text" name="imgurl"/>

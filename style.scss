@@ -1,10 +1,17 @@
+
+.boxedtext{
+  width: 500px;
+  padding: 5;
+  
+}
+
 .boxed{
 
 	
 	
-  border: 2px solid gray  ;
+  border: 1px solid gray  ;
   border-radius: 8px;
-  width: 640px;
+  width: 500px;
   color: #000000;
   /*background-image:url('images/texture.jpg');*/
  
@@ -25,19 +32,36 @@
 .boxed:hover {
 
 
-  border: 2px solid #00BFFF ;
+  border: 1px solid #00BFFF ;
   border-radius: 8px;
-  width: 640px;
+  width: 500px;
   color: #000000;
   /*background-image:url('images/texture.jpg');*/
  
   box-shadow: 10px 10px 5px #888888;
+  
+  -webkit-animation: shad 1s; /* Safari and Chrome */
+       -moz-animation: shad 1s; /* Firefox */
+        -ms-animation: shad 1s; /* Internet Explorer */
+         -o-animation: shad 1s; /* Opera */
+            
+  
+  
+  
+  
 }
 
-.boxed2{
-  width: 640px;
+img{
+  padding: 3px;
+}
+
+.topbar{
+  padding: 5px;
+}
+
+.bar{
+  width: 500px;
   color: #000000;
-  /*background-color: #696969;*/
 }
 
 div {line-height: 1.5;}
@@ -56,6 +80,31 @@ h1, p {margin: 0;}
     from { opacity: 0; color: #00BFFF; background-color: gray; }
     to   { opacity: 1; color: black; background-color: white;}
 }
+
+/* Safari and Chrome */
+@keyframes shad {
+    from { box-shadow: 0px 0px 0px 0px #00BFFF;}
+    to   { box-shadow: 0px 0px 32px 0px #00BFFF;}
+}
+
+/* Safari and Chrome */
+@-moz-keyframes shad {
+    from { box-shadow: 0px 0px 0px 0px #00BFFF;}
+    to   { box-shadow: 0px 0px 32px 0px #00BFFF;}
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes shad {
+    from { box-shadow: 0px 0px 0px 0px #00BFFF;}
+    to   { box-shadow: 0px 0px 32px 0px #00BFFF;}
+}
+
+/* Safari and Chrome */
+@-ms-keyframes shad {
+    from { box-shadow: 0px 0px 0px 0px #00BFFF;}
+    to   { box-shadow: 0px 0px 32px 0px #00BFFF;}
+}
+
 
 /* Safari and Chrome */
 @-webkit-keyframes fadein {

@@ -27,9 +27,9 @@
 	
 
 	echo "<form method='post'>
-		<input type='text' name='field'/>
+		<input type='text' size='100px' name='field'/>
 		<input type='submit' name='search' value='Search'/>
-		<a href='shareinfo.php'> <input type='button' name='provide' value='provide'/></a>
+		<a href='shareinfo.php'> <input type='button' name='provide' value='Provide'/></a>
 		
 	</form>";
 	
@@ -81,7 +81,7 @@ if(isset($_POST["search"])){
 			showResult($file,$infotext,$imgurl,$upvotes,$similar,$index,$names);	
 		}else{
 		
-		if($similar > 0.5 || substr_count($infotext, $text) > 0){
+		if($similar >= 0.98 || substr_count($infotext, $text) > 0){
 		
 		$index += 1;
 		$names[$index] = $file;
@@ -146,14 +146,14 @@ if(isset($_POST["search"])){
 		<form method='post'>
 		";
 		
-		echo "<h1><font face='verdana'>$file</font></h1> <div align='right'><input type='image' src='images/downvote.png' width=16px height=16px name='downvote' value='Downvote'/>";
+		echo "<div class='boxedtext'><font size='5' face='verdana'>$file</font></div><div align='right' class='topbar'><input type='image' src='images/downvote.png' width=16px height=16px name='downvote' value='Downvote'/>";
 		echo "<input type='image' src='images/upvote.png' width=16px height=16px name='upvote' value='Upvote'/> $upvotes</div><hr>";
-		echo "<font face='verdana'>$infotext</font><br>";
+		echo "<div class='boxedtext'><font size='2' face='verdana'>$infotext</font></div><br><hr>";
+		$similar = ceil($similar * 100);
+		echo"<div align='right' class='topbar'>Similar to search: $similar%</div>";
 		
-		echo"<div align='right'>Similarity:$similar</div>";
 		
-		
-		echo"<div align = left>";
+		echo"<div align='left' class='bar'>";
 		
 		echo "<p>";
 		
