@@ -97,7 +97,7 @@ if(isset($_POST["search"])){
 		
 			}
 		
-			if (substr_count($infotext, $text) > 0){
+			else if (substr_count($infotext, $text) > 0){
 				$index += 1;
 				$names[$index] = $file;
 		
